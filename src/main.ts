@@ -70,10 +70,10 @@ function initCity() {
   scene.add(sunLight);
 
   // City elements
-  const buildings = createBuildings(scene, gridSize, gridDivisions);
+  createBuildings(scene, gridSize, gridDivisions);
   const { cars, trafficLights } = createRoads(scene, gridSize, gridDivisions);
   const pedestrians = createPedestrians(scene, gridSize, gridDivisions);
-  const streetElements = createStreetElements(scene, gridSize, gridDivisions);
+  createStreetElements(scene, gridSize, gridDivisions);
 
   // Day/Night cycle variables
   let time = 0;
@@ -91,7 +91,7 @@ function initCity() {
     // Update moving elements
     updateCars(cars, gridSize);
     updatePedestrians(pedestrians, gridSize);
-    updateTrafficLights(trafficLights, time);
+    updateTrafficLights(trafficLights);
 
     // Update controls
     controls.update();
@@ -1052,7 +1052,7 @@ function updatePedestrians(pedestrians: any[], gridSize: number) {
 }
 
 // Function to update traffic lights
-function updateTrafficLights(trafficLights: any[], time: number) {
+function updateTrafficLights(trafficLights: any[]) {
   trafficLights.forEach((trafficLight) => {
     // Update timer
     trafficLight.timer += 0.01;
