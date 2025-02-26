@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/sample3d_cityscape/",
+  base: "./",
   build: {
     outDir: "dist", // Make sure the output directory is set to dist
   },
